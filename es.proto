@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package es;
+
+message Request {
+  optional string message = 1;
+  optional int32  code    = 2;
+}
+
+message Response {
+  optional string message = 1;
+  optional int32  code    = 2;
+}
+
+// Interface exported by the server.
+service ES {
+  rpc SimpleRPC(Request) returns (Response) {}
+  
+  rpc SimpleSubsribe(Request) returns (stream Response) {}
+
+}
